@@ -9,3 +9,4 @@
 9.JAMES BOND.
 10.JHON DOE.
 11.Write a script that sets the mode of the file hello the same as olleh’s mode.
+12.Create a script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users.
