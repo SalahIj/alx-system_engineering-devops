@@ -2,10 +2,10 @@
 #Game of talking....
 
 dir="/etc/passwd"
-while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
+while IFS=: read -r a1 a2 a3 a4 a5 a6 a7
 do
-	echo "The user $f1 is part of the $f4 gang,"\
-	"lives in $f6 and rides $f7."\
-	"$f3's place is protected by the passcode $f2,"\
-	"more info about the user here: $f5"
+	echo "The user $a1 is part of the $a4 gang,"\
+	"lives in $a6 and rides $a7."\
+	"$a3's place is protected by the passcode $a2,"\
+	"more info about the user here: $a5"
 done < "$dir"
