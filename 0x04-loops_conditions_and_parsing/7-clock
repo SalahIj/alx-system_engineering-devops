@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#Printing time 12hours and 59minutes
+
+i=0
+while [ $i -le 12 ]
+do
+	echo "Hour: $i"
+	k=1
+	while [ $k -le 59 ]
+	do
+		echo "$k"
+		((k++))
+	done
+	((i++))
+done
