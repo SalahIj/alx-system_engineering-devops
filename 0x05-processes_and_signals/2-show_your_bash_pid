@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Printing info...
+
+ps aux | grep "bash"
