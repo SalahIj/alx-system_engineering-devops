@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# script for an IP address
+
+Iq="${1}"
+filename=$(basename "${BASH_SOURCE[@]}")
+
+if [ "$Iq" ]
+then
+	ping -c 5 "${Iq}"
+else
+	echo "Usage: ${filename} {IP_ADDRESS}"
+fi
