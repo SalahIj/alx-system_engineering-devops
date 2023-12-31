@@ -1,7 +1,7 @@
-#Distributed Web Infrastructure
+# Distributed Web Infrastructure
 ![Image of a distributed web infrastructure](1-distributed_web_infrastructure.PNG)
 
-##Definitions and Explanations:
+## Definitions and Explanations:
 --For every additional element, why you are adding it:
 Adding a new server so that we can
 be able to add a load balancer to handle too much incoming traffic and also enable us to
@@ -21,7 +21,7 @@ A Primary-Replica (Master-Slave) database cluster is a configuration where there
 --What is the difference between the Primary node and the Replica node in regard to the application:
 The primary node is the authoritative source for write operations and ensures data consistency, while replica nodes primarily handle read operations, providing scalability, load balancing, and fault tolerance for read-heavy workloads. Applications need to be aware of these roles and interact with the appropriate nodes based on the type of operation being performed.
 
-##Issues with this infrastructure:
+## Issues with this infrastructure:
 --Where are SPOF:
 In the proposed infrastructure, there are potential Single Points of Failure (SPOFs) that could impact the overall availability and reliability of the system. Identifying and addressing SPOFs is crucial for designing a robust and fault-tolerant architecture.
 Addressing these potential SPOFs involves implementing redundancy, fault-tolerant configurations, and security measures. Redundancy is particularly critical for components like load balancers and database nodes to ensure continuous operation in the face of failures. The goal is to design an infrastructure that minimizes the impact of failures on the overall system and provides a high level of availability and reliability.
