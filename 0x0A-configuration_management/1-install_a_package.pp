@@ -1,5 +1,11 @@
-# A Manifest that's installs Flask v2.1.0 on Puppet-agent.
-package {'flask':
+# install flask from pip3
+
+package {  'flask':
   ensure   => '2.1.0',
-  provider => pip3,
+  provider => 'pip3',
+}
+
+package {  'werkzeug':
+  ensure   => '2.1.1',
+  provider => 'pip3',
 }
