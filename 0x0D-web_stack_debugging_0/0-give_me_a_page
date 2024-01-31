@@ -3,4 +3,6 @@
 service apache2 restart
 if pgrep apache2 > /dev/null; then
     echo "apache2 is running"
+else
+    echo "apache2 is not running"
 fi
