@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # Connecting to a default page in a container
-sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-service nginx start
+nginx_listen=$(netstat -tuln | grep ':80')
+
+if [ -z "$nginx_listen" ]; then
+    sed -i 's/^\s*listen\s*\(.*\)$/\tlisten 80;/g' /etc/nginx/sites-available/default
+    service nginx restart
+fi
