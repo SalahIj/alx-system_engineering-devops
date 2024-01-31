@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# .....
-
-/etc/init.d/apache2 start
+# Connecting a server in a Docker container
+service apache2 start
