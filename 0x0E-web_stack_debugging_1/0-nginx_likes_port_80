@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Connecting to a default page in a container
+service nginx start
