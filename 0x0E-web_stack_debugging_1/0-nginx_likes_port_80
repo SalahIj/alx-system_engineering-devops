@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Connecting to a default page in a container
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
 service nginx start
