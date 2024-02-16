@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script that runs nginx as user listening on all active IPs on port 8080 instead of port 80
+#.................
 pkill apache2
 chmod -R 777 /etc/nginx/
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
