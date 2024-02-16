@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # EngineX running inside engineX
-sudo systemctl stop nginx
-chmod -R 777 /etc/nginx/
-sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
-sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo sed -i "s/user www-data/user nginx/" /etc/nginx/nginx.conf
+sudo sed -i "s/80/8080/" /etc/nginx/sites-available/default
+sudo pkill -o apache2
 sudo -u nginx nginx -c /etc/nginx/nginx.conf
