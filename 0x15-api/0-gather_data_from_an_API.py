@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" The necessery imported
-modules """
+"""The necessery imported for doing tasks
+modules"""
 
 import requests
 import sys
