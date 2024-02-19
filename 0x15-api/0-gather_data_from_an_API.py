@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""The imported modules for doing this task about given
-employee ID"""
+"""-------------------------------------------------
+------------------------"""
 
 import requests
 import sys
