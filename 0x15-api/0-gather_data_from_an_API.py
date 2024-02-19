@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ The necessery imported modules """
 
-import requests
-import sys
-
-
 if __name__ == "__main__":
+
+    import requests
+    import sys
+
     url = "https://jsonplaceholder.typicode.com"
     user_Id = sys.argv[1]
     url_user = "{}/users/{}".format(url, user_Id)
