@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ The necessery imported modules """
 
-
-import requests
 import sys
+import requests
 
 
 if __name__ == "__main__":
