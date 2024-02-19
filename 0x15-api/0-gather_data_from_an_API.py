@@ -5,7 +5,8 @@
 import requests
 import sys
 
-if __name__ == "__main__":
+
+def main():
     url = "https://jsonplaceholder.typicode.com"
     user_Id = sys.argv[1]
     url_user = "{}/users/{}".format(url, user_Id)
@@ -28,3 +29,7 @@ if __name__ == "__main__":
 
     print("\n".join(["\t " + task.get("title") for task in to_do.json()
           if task.get("userId") == int(user_Id) and task.get("completed")]))
+
+
+if __name__ == "__main__":
+    main()
