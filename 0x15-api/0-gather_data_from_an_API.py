@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""The necessery imported for doing tasks
-modules"""
+"""For a given employee ID, returns information about
+their TODO list progress"""
 
 import requests
 import sys
