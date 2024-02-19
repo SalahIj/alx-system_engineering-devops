@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""For a given employee ID, returns information about
-their TODO list progress"""
+"""The imported modules for doing this task about given
+employee ID"""
 
 import requests
 import sys
