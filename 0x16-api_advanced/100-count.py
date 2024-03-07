@@ -7,6 +7,11 @@ importing requests module
 from requests import get
 
 
+def sort_key(item):
+    """--------------"""
+    return (-item[1], item[0])
+
+
 def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
     """
     function that queries the Reddit API, parses the title of all hot articles,
@@ -45,7 +50,7 @@ def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
             if v is not None:
                 new[k] = v
 
-        for k in sorted(new.items(), key=lambda x: (-x[1], x[0])):
+        for k in sorted(new.items(), key=sort_key):
             print("{}: {}".format(k[0], k[1]))
 
         return None
