@@ -41,7 +41,7 @@ def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
         return None
 
     data = get_info.json()
-    raw1 = data.get("data").get("children")
+    ligne1 = data.get("data").get("children")
     after = data.get("data").get("after")
 
     if after is None:
@@ -55,17 +55,14 @@ def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
 
         return None
 
-    for i in raw1:
-        title = i.get('data').get('title')
+    for i in ligne1:
+        title = i.get("data").get("title")
+        title_splited1 = title.split()
+        title_splited2 = [i.casefold() for i in title_splited1]
 
-        split_title = title.split()
-
-        split_title2 = [i.casefold() for i in split_title]
-
-        for j in split_title2:
+        for j in title_splited2:
             if j in cleaned_dict and cleaned_dict[j] is None:
                 cleaned_dict[j] = 1
-
             elif j in cleaned_dict and cleaned_dict[j] is not None:
                 cleaned_dict[j] += 1
 
