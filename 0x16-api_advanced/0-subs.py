@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-""" The imported modules """
-import requests
+"""Module for task 0"""
 
 
 def number_of_subscribers(subreddit):
-    """ The function definition
-    Args:
-       subreddit: the input  
-    """
-    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    Agent_user = {"User-Agent": "My-User-Agent"}
-    Groupe_info = requests.get(URL, headers=Agent_user, allow_redirects=False)
-    if Groupe_info.status_code >= 300:
+    """Queries the Reddit API and returns the number of subscribers
+    to the subreddit"""
+    import requests
+
+    sub_info = requests.get("https://www.reddit.com/r/{}/about.json"
+                            .format(subreddit),
+                            headers={"User-Agent": "My-User-Agent"},
+                            allow_redirects=False)
+    if sub_info.status_code >= 300:
         return 0
 
-    return Groupe_info.json().get("data").get("subscribers")
+    return sub_info.json().get("data").get("subscribers")
