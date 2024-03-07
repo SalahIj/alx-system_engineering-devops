@@ -8,8 +8,7 @@ def top_ten(subreddit):
     try:
         url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
         headers = {
-            "User-Agent": "linux:0x16.api.advanced:v1.0.0\
-            (by /u/Large_Alternative_30)",
+            "User-Agent": "My-User-Agent"
         }
         response = requests.get(url, headers=headers, allow_redirects=False)
         if (response.status_code == 404):
