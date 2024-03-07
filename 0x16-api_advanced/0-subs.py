@@ -1,35 +1,17 @@
 #!/usr/bin/python3
-"""Module that consumes the Reddit API and returns the number of subscribers"""
+""" The imported modules """
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Queries the Reddit API and returns the number of subscribers (not
-    active users, total subscribers) for a given subreddit.
-
-    If not a valid subreddit, return 0.
-    Invalid subreddits may return a redirect to search results. Ensure that
-    you are not following redirects.
-
+    """ The function definition
     Args:
-        subreddit (str): subreddit
-
-    Returns:
-        int: number of subscribers
+       subreddit: the input  
     """
-    base_url = 'https://www.reddit.com/r/'
+    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    Agent_user = {"User-Agent": "My-User-Agent"}
+    Groupe_info = requests.get(URL, headers=Agent_user, allow_redirects=False)
+    if Groupe_info.status_code >= 300:
+        return 0
 
-    url = '{}{}/about.json'.format(base_url, subreddit)
-    headers = {
-        'User-Agent':
-        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
-        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
-    }
-    results = requests.get(
-        url,
-        headers=headers,
-        allow_redirects=False
-    )
-    if results.status_code == 200:
-        return results.json()['data']['subscribers']
-    return 0
+    return Groupe_info.json().get("data").get("subscribers")
