@@ -14,37 +14,36 @@ def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
     spaces. Javascript should count as javascript, but java should not).
     """
 
-    temp = []
-
+    lst = []
     for i in word_list:
-        temp.append(i.casefold())
-
-    cleaned_word_list = list(dict.fromkeys(temp))
+        lst.append(i.casefold())
+    list_cleaned = list(dict.fromkeys(lst))
 
     if cleaned_dict is None:
-        cleaned_dict = dict.fromkeys(cleaned_word_list)
-
-    params = {'show': 'all'}
+        cleaned_dict = dict.fromkeys(list_cleaned)
 
     if subreddit is None or not isinstance(subreddit, str):
         return None
 
-    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
-
-    url = 'https://www.reddit.com/r/{}/hot/.json?after={}'.format(subreddit,
+    URL = "https://www.reddit.com/r/{}/hot/.json?after={}".format(subreddit,
                                                                   after)
 
-    response = get(url, headers=user_agent, params=params)
+    get_info = get(URL,
+                   headers={"User-agent": "My-User-Agent"},
+                   params={"show": "all"})
 
-    if (response.status_code != 200):
+    if get_info.status_code != 200:
         return None
 
-    all_data = response.json()
-    raw1 = all_data.get('data').get('children')
-    after = all_data.get('data').get('after')
+    data = get_info.json()
+    raw1 = data.get("data").get("children")
+    after = data.get("data").get("after")
 
     if after is None:
-        new = {k: v for k, v in cleaned_dict.items() if v is not None}
+        new = {}
+        for k, v in cleaned_dict.items():
+            if v is not None:
+                new[k] = v
 
         for k in sorted(new.items(), key=lambda x: (-x[1], x[0])):
             print("{}: {}".format(k[0], k[1]))
