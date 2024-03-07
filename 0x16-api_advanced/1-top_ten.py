@@ -6,11 +6,11 @@ import requests
 def top_ten(subreddit):
     """ The function definition """
     try:
-        url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-        headers = {
-            "User-Agent": "My-User-Agent"
-        }
-        response = requests.get(url, headers=headers, allow_redirects=False)
+        headers = {"User-Agent": "My-User-Agent"}
+        response = requests.get("https://www.reddit.com/r/{}/hot.json".
+                                format(subreddit),
+                                headers=headers,
+                                allow_redirects=False)
         if (response.status_code == 404):
             print('None')
             return 0
