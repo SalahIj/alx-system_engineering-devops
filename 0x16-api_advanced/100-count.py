@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-
-"""
-importing requests module
-"""
-
+"""imported modules"""
 from requests import get
 
 
