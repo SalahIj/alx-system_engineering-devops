@@ -3,10 +3,7 @@
 
 
 def number_of_subscribers(subreddit):
-    """ The function definition
-    Args:
-       subreddit: the input
-    """
+    """ The function definition """
     import requests
 
     sub_info = requests.get("https://www.reddit.com/r/{}/about.json"
